@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 40%; /* 25% in mobile */
+    height: auto;
+    margin: auto auto;
+    margin-top: 5%; /* 10% or more in mobile */
+    display: block;
+}
