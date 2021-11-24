@@ -1,0 +1,4 @@
+AGREGAR
+nombre,corre,departamento
+nombre,corre,departamento1
+nombre,corre,departamento2

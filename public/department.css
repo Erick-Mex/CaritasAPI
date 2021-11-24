@@ -1,0 +1,22 @@
+.my-custom-scrollbar {
+  position: relative;
+  height: 500px;
+  width: 95%;
+  overflow: auto;
+  margin: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.formDepartment {
+  display: none;
+  width: 30%;
+  margin: 25px;
+}
+
+.options button {
+  padding: 10px;
+  margin: 20px;
+}

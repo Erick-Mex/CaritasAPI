@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/department.css">
+    <title>Administrador Caritas</title>
+</head>
+<body>
+    <ul class="nav nav-pills justify-content-center my-1">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/employee">Empleados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/visit">Visitas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/admin/departments">Departamentos</a>
+        </li>
+    </ul>
+
+    <h2 class="text-center mt-3">Lista de Departamentos</h2>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Departamento</th>
+                <th>Jefe de Departamento</th>
+                <th>Correo</th>
+            </tr>
+            <% for(var i = 0; i < department.length; i++) { %>
+                <tr>
+                    <td><%= department[i].id %></td>
+                    <td><%= department[i].nombre %></td>
+                    <td><%= department[i].jefe %></td>
+                    <td><%= department[i].correo %></td>
+                </tr>
+            <% } %>
+        </table>    
+    </div>
+
+    <div>
+      <input class="mt-3" type="file" name="inputFile" id="inputFile">
+      <pre id="output"></pre>
+    </div>    
+
+    <div class="options btn-group d-flex justify-content-center">
+      <button class="btn btn-primary" id="0" onclick="showForms(this.id)">Agregar Departamento</button>
+      <button class="btn btn-primary" id="1" onclick="showForms(this.id)">Eliminar Departamento</button>
+    </div>
+
+
+
+    <form class="formDepartment" action="/admin/addDepartment" method="POST">
+      <div class="mb-3">
+          <label for="inputName" class="form-label">Nombre de Departamento</label>
+          <input name="nameDepartment" type="text" class="form-control" id="InputName" placeholder="Inserte el Nombre del Departamento">
+      </div>
+      <div class="mb-3">
+          <label for="inputHeadDepartment" class="form-label">Jefe de Departamento</label>
+          <input name="Head_of_Department" type="text" class="form-control" id="inputHeadDepartment" placeholder="Inserte el Jefe de Departamento">
+      </div>
+      <div class="mb-3">
+          <label for="inputEmail" class="form-label">Correo</label>
+          <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Inserte el Correo de Departamento (o Jefe de Departamento)">
+      </div>
+      <button type="submit" class="btn btn-secondary">Confirmar</button>
+    </form>
+  
+    <form class="formDepartment" action="/admin/deleteDepartment" method="POST">
+      <div class="mb-3">
+          <label for="InputID" class="form-label">ID del Departamento</label>
+          <input name="id" type="number" class="form-control" id="InputID" placeholder="Inserte el ID del Departamento a Eliminar">
+      </div>
+      <button type="submit" class="btn btn-secondary">Confirmar</button>
+    </form>
+
+    <script src="/department.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
