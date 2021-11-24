@@ -3,7 +3,7 @@ let optionButton = document.querySelector('.options').children;
 
 
 function showForms(id) {
-    for(var i = 0; i < 4; i++) {
+    for(var i = 0; i < 2; i++) {
         if(i != id)
         {
             forms[i].style.display = "none"

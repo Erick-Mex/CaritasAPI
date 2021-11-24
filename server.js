@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import fileUpload from "express-fileupload";
 import employeeRouter from "./routes/employees.js";
 import visitRouter from "./routes/visits.js";
 import adminRouter from "./routes/admin.js";
@@ -11,6 +12,7 @@ const port = 8000;
 
 app.use(express.static("public"));
 app.use(express.static("js"));
+app.use(fileUpload());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
