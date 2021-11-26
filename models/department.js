@@ -28,6 +28,7 @@ export default class departmentModel {
     });
   }
 
+  //Query para agregar departamento
   addDepartment(nameDepartment, Head_of_Department, email) {
     return new Promise((resolve, reject) => {
       pool.getConnection((err, connection) => {
@@ -42,6 +43,7 @@ export default class departmentModel {
     });
   }
 
+  //Eliminar departamento por ID
   deleteDepartment(id) {
     return new Promise((resolve, reject) => {
       pool.getConnection((err, connection) => {

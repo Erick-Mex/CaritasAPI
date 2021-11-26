@@ -1,7 +1,7 @@
 let forms = document.querySelectorAll('.formDepartment');
 let optionButton = document.querySelector('.options').children;
 
-
+//Mostrar el formulario correspondiente para los departamentos
 function showForms(id) {
     for(var i = 0; i < 2; i++) {
         if(i != id)
@@ -14,20 +14,3 @@ function showForms(id) {
         }
     }
 }
-
-
-/* let file = document.getElementById('inputFile');
-
-file.addEventListener('change', function() {
-    let fr = new FileReader();
-    fr.onload = function() {
-        const word = fr.result.split(',')
-        word.forEach(element => {
-            let algo = element.split('\r\n')
-            console.log(algo);
-        });
-        console.log(word);
-        document.getElementById('output').textContent = fr.result;
-    }
-    fr.readAsText(this.files[0]);
-}) */

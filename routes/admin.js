@@ -133,6 +133,7 @@ import {
   deleteDepartment,
 } from "../js/ReadFiles.js";
 
+//Carga de archivo para realizar operaciones a la tabla Departamentos
 router.post("/loadfileDepartment", async (req, res) => {
   try {
 
@@ -161,6 +162,8 @@ router.post("/loadfileDepartment", async (req, res) => {
     res.redirect("/admin/departments")
   }
 });
+
+//Carga de arhivo para hacer operaciones a la tabla empleados
 router.post("/loadfileEmployee", async (req, res) => {
   try {
     let data = await LineByLine(req.files.fileName.name);
