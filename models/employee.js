@@ -48,7 +48,7 @@ export default class EmployeeModel {
   }
 
   //Query para retornar un empleado por el nombre
-  get_Employee_email(name) {
+  get_Employee_name(name) {
     return new Promise((resolve, reject) => {
       pool.getConnection((err, connection) => {
         if (err) throw err;
