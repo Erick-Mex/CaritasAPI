@@ -5,7 +5,7 @@ const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "",
-  database: "algo",
+  database: "caritasdb",
 });
 
 export default class EmployeeModel {
@@ -19,7 +19,7 @@ export default class EmployeeModel {
       pool.getConnection((err, connection) => {
         if (err) throw err;
 
-        connection.query("SELECT * FROM `employee`", (err, rows) => {
+        connection.query("SELECT * FROM `empleado`", (err, rows) => {
           connection.release();
           if (err) reject(err);
           resolve(rows);
@@ -35,7 +35,7 @@ export default class EmployeeModel {
         if (err) throw err;
 
         connection.query(
-          "SELECT * FROM `employee` WHERE `correo`=?",
+          "SELECT * FROM `empleado` WHERE `correo`=?",
           [email],
           (err, rows) => {
             connection.release();
@@ -48,13 +48,13 @@ export default class EmployeeModel {
   }
 
   //Query para retornar un empleado por el nombre
-  get_Employee_email(name) {
+  get_Employee_name(name) {
     return new Promise((resolve, reject) => {
       pool.getConnection((err, connection) => {
         if (err) throw err;
 
         connection.query(
-          "SELECT * FROM `employee` WHERE `nombre`=?",
+          "SELECT * FROM `empleado` WHERE `nombre`=?",
           [name],
           (err, rows) => {
             connection.release();
@@ -73,7 +73,7 @@ export default class EmployeeModel {
         if (err) throw err;
 
         connection.query(
-          "INSERT INTO `employee` (`nombre`, `correo`, `departamento`) VALUES (?, ?, ?)",
+          "INSERT INTO `empleado` (`nombre`, `correo`, `departamento`) VALUES (?, ?, ?)",
           [name, email, department],
           (err, rows) => {
             connection.release();
@@ -92,7 +92,7 @@ export default class EmployeeModel {
         if (err) throw err;
 
         connection.query(
-          "DELETE FROM `employee` WHERE correo=?",
+          "DELETE FROM `empleado` WHERE correo=?",
           [email],
           (err, rows) => {
             connection.release();
@@ -111,7 +111,7 @@ export default class EmployeeModel {
         if (err) throw err;
 
         connection.query(
-          "UPDATE `employee` SET `nombre`=?, `correo`=?, `departamento`=? WHERE `correo`=?",
+          "UPDATE `empleado` SET `nombre`=?, `correo`=?, `departamento`=? WHERE `correo`=?",
           [newName, newEmail, newDepartment, email],
           (err, rows) => {
             connection.release();

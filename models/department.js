@@ -5,7 +5,7 @@ const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "",
-  database: "algo",
+  database: "caritasdb",
 });
 
 export default class departmentModel {
@@ -34,7 +34,7 @@ export default class departmentModel {
       pool.getConnection((err, connection) => {
         if (err) throw err;
 
-        connection.query("INSERT INTO `departamento` (`nombre`, `jefe`, `correo`) VALUES (?, ?, ?)", [nameDepartment, Head_of_Department, email], (err, rows) => {
+        connection.query("INSERT INTO `departamento` (`nombre_departamento`, `jefe`, `correo`) VALUES (?, ?, ?)", [nameDepartment, Head_of_Department, email], (err, rows) => {
           connection.release();
           if (err) reject(err);
           resolve(rows);
@@ -49,7 +49,7 @@ export default class departmentModel {
       pool.getConnection((err, connection) => {
         if (err) throw err;
 
-        connection.query("DELETE FROM `departamento` WHERE id=?", [id], (err, rows) => {
+        connection.query("DELETE FROM `departamento` WHERE id_Departamento=?", [id], (err, rows) => {
           connection.release();
           if (err) reject(err);
           resolve(rows);

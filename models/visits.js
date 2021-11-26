@@ -6,7 +6,7 @@ const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "",
-  database: "algo",
+  database: "caritasdb",
 });
 
 export default class VisitModel {
