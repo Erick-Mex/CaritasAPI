@@ -1,7 +1,7 @@
 let forms = document.querySelectorAll('.formEmployee');
 let optionButton = document.querySelector('.options').children;
 
-
+//Mostrar formulario para los empleados
 function showForms(id) {
     for(var i = 0; i < 4; i++) {
         if(i != id)

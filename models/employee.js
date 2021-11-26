@@ -47,6 +47,25 @@ export default class EmployeeModel {
     });
   }
 
+  //Query para retornar un empleado por el nombre
+  get_Employee_email(name) {
+    return new Promise((resolve, reject) => {
+      pool.getConnection((err, connection) => {
+        if (err) throw err;
+
+        connection.query(
+          "SELECT * FROM `employee` WHERE `nombre`=?",
+          [name],
+          (err, rows) => {
+            connection.release();
+            if (err) reject(err);
+            resolve(rows);
+          }
+        );
+      });
+    });
+  }
+
   //Query para agregar un empleado
   set_Employee(name, email, department) {
     return new Promise((resolve, reject) => {

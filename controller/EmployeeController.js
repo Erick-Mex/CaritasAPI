@@ -9,6 +9,9 @@ export default class EmployeeController {
   async getEmployeByEmail(email) {
     return this.employee.get_Employee_email(email);
   }
+  async getEmployeeByName(name) { 
+    return this.employee.get_employee_name(name);
+  }
   async setEmployee(name, email, department) {
     return this.employee.set_Employee(name, email, department);
   }
