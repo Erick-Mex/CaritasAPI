@@ -8,7 +8,7 @@ import adminRouter from "./routes/admin.js";
 dotenv.config();
 
 const app = express();
-const port = 8000;
+const port = 10046 || process.env.PORT;
 
 app.use(express.static("public"));
 app.use(express.static("js"));
